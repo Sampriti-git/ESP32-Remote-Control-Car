@@ -1,0 +1,293 @@
+/* ===========================
+   GOOGLE FONTS
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#050816,#0f172a,#1e3a8a);
+    overflow-x:hidden;
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+.background{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    position:relative;
+    overflow:hidden;
+}
+
+.background::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:#2563eb;
+    border-radius:50%;
+    filter:blur(140px);
+    top:-100px;
+    left:-100px;
+    opacity:.35;
+    animation:floatLight1 8s ease-in-out infinite alternate;
+}
+
+.background::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#7c3aed;
+    border-radius:50%;
+    filter:blur(140px);
+    bottom:-80px;
+    right:-80px;
+    opacity:.30;
+    animation:floatLight2 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatLight1{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(60px,40px);
+    }
+}
+
+@keyframes floatLight2{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-50px,-30px);
+    }
+}
+
+/* Keep the card above the glowing lights */
+.card,
+.controller{
+    position:relative;
+    z-index:2;
+}
+
+/* ===========================
+   MAIN CARD
+=========================== */
+
+.card,
+.controller{
+
+    width:430px;
+
+    max-width:95%;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+
+}
+
+/* ===========================
+   CAR ICON
+=========================== */
+
+.car-icon{
+
+    font-size:55px;
+
+    text-align:center;
+
+    animation:carMove 2s ease-in-out infinite;
+
+}
+
+@keyframes carMove{
+
+0%{transform:translateX(-8px);}
+
+50%{transform:translateX(8px);}
+
+100%{transform:translateX(-8px);}
+
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    color:white;
+
+    text-align:center;
+
+    margin-top:15px;
+
+    font-size:28px;
+
+    text-shadow:0 0 18px #3b82f6;
+
+}
+
+.powered{
+
+    text-align:center;
+
+    color:#60a5fa;
+
+    margin-top:10px;
+
+    font-size:14px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#d1d5db;
+
+    margin:30px 0;
+
+}
+/* ===========================
+   CONTROLLER
+=========================== */
+
+.controller{
+    text-align:center;
+}
+
+.control-grid{
+    display:flex;
+    justify-content:space-between;
+    gap:130px;
+    margin:45px 0;
+}
+
+.left-buttons,
+.right-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.left-buttons button,
+.right-buttons button{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:40px;
+}
+
+.material-icons{
+    font-size:48px;
+}
+
+#forward{
+    background:#22c55e;
+    box-shadow:0 0 25px #22c55e;
+}
+
+#reverse{
+    background:#f97316;
+    box-shadow:0 0 25px #f97316;
+}
+
+#left{
+    background:#2563eb;
+    box-shadow:0 0 25px #2563eb;
+}
+
+#right{
+    background:#8b5cf6;
+    box-shadow:0 0 25px #8b5cf6;
+}
+
+.stop-area{
+    display:flex;
+    justify-content:center;
+    margin-top:15px;
+}
+
+#stop{
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    box-shadow:0 0 35px #ef4444;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#stop .material-icons{
+    font-size:50px;
+}
+/* Logo */
+
+.car-icon{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.car-icon img{
+    width:220px;
+    max-width:100%;
+    filter:drop-shadow(0 0 20px #3b82f6);
+    animation:floatCar 3s ease-in-out infinite;
+}
+
+@keyframes floatCar{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+}
