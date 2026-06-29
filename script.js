@@ -13,7 +13,7 @@ if (saveBtn) {
 
         // This is where we'll send the Wi-Fi details to the ESP32 later.
 
-        window.location.href = "./control.html";
+        window.location.href = "https://github.com/Sampriti-git/ESP32-Remote-Control-Car.git./control.html";
     });
 }
 
