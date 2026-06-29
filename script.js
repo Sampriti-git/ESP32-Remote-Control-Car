@@ -48,18 +48,17 @@ Object.keys(buttons).forEach(id => {
   });
 
   // Touch press (mobile) → send command
-  btn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    const command = buttons[id];
-    fetch(esp32 + "/" + command)
-      .then(() => console.log("Sent: " + command))
-      .catch(() => console.log("ESP32 not connected"));
-  });
-
+ 
   // Mouse release → stop
-  btn.addEventListener("mouseup", () => {
-    fetch(esp32 + "/S").catch(() => {});
-  });
+  btn.addEventListener("click", () => {
+
+    let command = buttons[id];
+
+    fetch(esp32 + "/" + command)
+    .then(() => console.log(command))
+    .catch(() => console.log("ESP32 not connected"));
+
+});
 
   // Touch release (mobile) → stop
   btn.addEventListener("touchend", (e) => {
