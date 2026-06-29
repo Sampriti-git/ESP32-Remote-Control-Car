@@ -8,84 +8,76 @@
    RESET
 =========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    background:linear-gradient(135deg,#050816,#0f172a,#1e3a8a);
-    overflow-x:hidden;
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #050816, #0f172a, #1e3a8a);
+    overflow-x: hidden;
 }
 
 /* ===========================
    BACKGROUND
 =========================== */
 
-.background{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-    position:relative;
-    overflow:hidden;
+.background {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.background::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:#2563eb;
-    border-radius:50%;
-    filter:blur(140px);
-    top:-100px;
-    left:-100px;
-    opacity:.35;
-    animation:floatLight1 8s ease-in-out infinite alternate;
+.background::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #2563eb;
+    border-radius: 50%;
+    filter: blur(140px);
+    top: -100px;
+    left: -100px;
+    opacity: .35;
+    animation: floatLight1 8s ease-in-out infinite alternate;
 }
 
-.background::after{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    background:#7c3aed;
-    border-radius:50%;
-    filter:blur(140px);
-    bottom:-80px;
-    right:-80px;
-    opacity:.30;
-    animation:floatLight2 10s ease-in-out infinite alternate;
+.background::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #7c3aed;
+    border-radius: 50%;
+    filter: blur(140px);
+    bottom: -80px;
+    right: -80px;
+    opacity: .30;
+    animation: floatLight2 10s ease-in-out infinite alternate;
 }
 
-@keyframes floatLight1{
-    from{
-        transform:translate(0,0);
-    }
-    to{
-        transform:translate(60px,40px);
-    }
+@keyframes floatLight1 {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(60px, 40px); }
 }
 
-@keyframes floatLight2{
-    from{
-        transform:translate(0,0);
-    }
-    to{
-        transform:translate(-50px,-30px);
-    }
+@keyframes floatLight2 {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(-50px, -30px); }
 }
 
-/* Keep the card above the glowing lights */
+/* Keep card above glowing lights */
 .card,
-.controller{
-    position:relative;
-    z-index:2;
+.controller {
+    position: relative;
+    z-index: 2;
 }
 
 /* ===========================
@@ -93,201 +85,206 @@ body{
 =========================== */
 
 .card,
-.controller{
-
-    width:430px;
-
-    max-width:95%;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-
-    border-radius:30px;
-
-    padding:40px;
-
-    box-shadow:0 15px 45px rgba(0,0,0,.45);
-
+.controller {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(18px);
+    border-radius: 30px;
+    padding: clamp(20px, 5vw, 40px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, .45);
 }
 
 /* ===========================
-   CAR ICON
+   CAR ICON / LOGO
 =========================== */
 
-.car-icon{
-
-    font-size:55px;
-
-    text-align:center;
-
-    animation:carMove 2s ease-in-out infinite;
-
+.car-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    animation: carMove 2s ease-in-out infinite;
 }
 
-@keyframes carMove{
+.car-icon img {
+    width: clamp(120px, 50vw, 220px);
+    max-width: 100%;
+    filter: drop-shadow(0 0 20px #3b82f6);
+    animation: floatCar 3s ease-in-out infinite;
+}
 
-0%{transform:translateX(-8px);}
+@keyframes carMove {
+    0%   { transform: translateX(-8px); }
+    50%  { transform: translateX(8px); }
+    100% { transform: translateX(-8px); }
+}
 
-50%{transform:translateX(8px);}
-
-100%{transform:translateX(-8px);}
-
+@keyframes floatCar {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
 /* ===========================
    TITLE
 =========================== */
 
-h1{
-
-    font-family:'Orbitron',sans-serif;
-
-    color:white;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    font-size:28px;
-
-    text-shadow:0 0 18px #3b82f6;
-
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: clamp(16px, 5vw, 28px);
+    text-shadow: 0 0 18px #3b82f6;
 }
 
-.powered{
-
-    text-align:center;
-
-    color:#60a5fa;
-
-    margin-top:10px;
-
-    font-size:14px;
-
+.powered {
+    text-align: center;
+    color: #60a5fa;
+    margin-top: 10px;
+    font-size: clamp(11px, 3vw, 14px);
 }
 
-.subtitle{
-
-    text-align:center;
-
-    color:#d1d5db;
-
-    margin:30px 0;
-
+.subtitle {
+    text-align: center;
+    color: #d1d5db;
+    margin: 20px 0;
+    font-size: clamp(12px, 3vw, 15px);
 }
+
 /* ===========================
-   CONTROLLER
+   INPUT GROUP (Setup Page)
 =========================== */
 
-.controller{
-    text-align:center;
+.input-group {
+    margin-bottom: 15px;
 }
 
-.control-grid{
-    display:flex;
-    justify-content:space-between;
-    gap:130px;
-    margin:45px 0;
+.input-group label {
+    display: block;
+    color: #d1d5db;
+    margin-bottom: 6px;
+    font-size: clamp(12px, 3vw, 14px);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    font-size: clamp(12px, 3vw, 14px);
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #6b7280;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+#saveBtn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    font-size: clamp(13px, 3.5vw, 16px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#saveBtn:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+/* ===========================
+   CONTROLLER (Control Page)
+=========================== */
+
+.controller {
+    text-align: center;
+}
+
+.control-grid {
+    display: flex;
+    justify-content: center;
+    gap: clamp(30px, 10vw, 130px);
+    margin: clamp(20px, 5vw, 45px) 0;
 }
 
 .left-buttons,
-.right-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:35px;
+.right-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(15px, 4vw, 35px);
 }
 
 .left-buttons button,
-.right-buttons button{
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:40px;
+.right-buttons button {
+    width: clamp(60px, 18vw, 90px);
+    height: clamp(60px, 18vw, 90px);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.material-icons{
-    font-size:48px;
+.material-icons {
+    font-size: clamp(28px, 8vw, 48px);
 }
 
-#forward{
-    background:#22c55e;
-    box-shadow:0 0 25px #22c55e;
+#forward {
+    background: #22c55e;
+    box-shadow: 0 0 25px #22c55e;
 }
 
-#reverse{
-    background:#f97316;
-    box-shadow:0 0 25px #f97316;
+#reverse {
+    background: #f97316;
+    box-shadow: 0 0 25px #f97316;
 }
 
-#left{
-    background:#2563eb;
-    box-shadow:0 0 25px #2563eb;
+#left {
+    background: #2563eb;
+    box-shadow: 0 0 25px #2563eb;
 }
 
-#right{
-    background:#8b5cf6;
-    box-shadow:0 0 25px #8b5cf6;
+#right {
+    background: #8b5cf6;
+    box-shadow: 0 0 25px #8b5cf6;
 }
 
-.stop-area{
-    display:flex;
-    justify-content:center;
-    margin-top:15px;
+.stop-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
-#stop{
-
-    width:110px;
-    height:110px;
-
-    border-radius:50%;
-
-    background:#ef4444;
-
-    box-shadow:0 0 35px #ef4444;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+#stop {
+    width: clamp(75px, 22vw, 110px);
+    height: clamp(75px, 22vw, 110px);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: #ef4444;
+    box-shadow: 0 0 35px #ef4444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#stop .material-icons{
-    font-size:50px;
-}
-/* Logo */
-
-.car-icon{
-    display:flex;
-    justify-content:center;
-    margin-bottom:20px;
-}
-
-.car-icon img{
-    width:220px;
-    max-width:100%;
-    filter:drop-shadow(0 0 20px #3b82f6);
-    animation:floatCar 3s ease-in-out infinite;
-}
-
-@keyframes floatCar{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0px);
-}
+#stop .material-icons {
+    font-size: clamp(32px, 9vw, 50px);
 }
