@@ -13,7 +13,7 @@ if (saveBtn) {
 
         // This is where we'll send the Wi-Fi details to the ESP32 later.
 
-        window.location.href = "control.html";
+        window.location.href = "./control.html";
     });
 }
 
