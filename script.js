@@ -35,7 +35,7 @@ Object.keys(buttons).forEach(id => {
     if (!btn) return;
 
     btn.addEventListener("mousedown", () => {
-       const esp32 = "http://YOUR_ESP32_IP";
+       const esp32 = "http://192.168.41";
     });
 
     btn.addEventListener("mouseup", () => {
