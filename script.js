@@ -59,14 +59,4 @@ Object.keys(buttons).forEach(id => {
 
         fetch(esp32 + "/S")
         .catch(() => console.log("ESP32 not connected"));
-<<<<<<< HEAD
 
-    });
-
-});
-=======
-
-    });
-
-});
->>>>>>> d6c9e2ee1723b97f6e223b1997765fff122de567
