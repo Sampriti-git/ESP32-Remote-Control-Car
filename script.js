@@ -19,11 +19,14 @@ if (saveBtn) {
 
 // Control Buttons
 const buttons = {
-    forward: "forward",
-    reverse: "back",
-    left: "left",
-    right: "right",
-    stop: "stop"
+
+    forward: "F",
+    reverse: "B",
+    left: "L",
+    right: "R",
+    stop: "S"
+
+};
 };
 
 Object.keys(buttons).forEach(id => {
@@ -32,8 +35,7 @@ Object.keys(buttons).forEach(id => {
     if (!btn) return;
 
     btn.addEventListener("mousedown", () => {
-        console.log("Command:", buttons[id]);
-        // We'll send the command to the ESP32 here.
+       const esp32 = "http://YOUR_ESP32_IP";
     });
 
     btn.addEventListener("mouseup", () => {
@@ -41,13 +43,19 @@ Object.keys(buttons).forEach(id => {
         // We'll send the stop command here when the button is released.
     });
 
-    btn.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        console.log("Command:", buttons[id]);
+    btn.addEventListener("mousedown", () => {
+
+    let command = buttons[id];
+
+    fetch(esp32 + "/" + command);
+
+});;
     });
 
-    btn.addEventListener("touchend", (e) => {
-        e.preventDefault();
-        console.log("Stop");
+    btn.addEventListener("mouseup", () => {
+
+    fetch(esp32 + "/stop");
+
+});
     });
 });
